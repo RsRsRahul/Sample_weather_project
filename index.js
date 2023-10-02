@@ -1,6 +1,8 @@
 const handleButtonClick = document.getElementById('getWeather');
 const cityInput = document.getElementById('cityInput');
 const weatherData = document.getElementById('weatherData');
+const popularCity = document.getElementById('popularCities')
+const popularCities = ['NYC','Hyderabad','bangkok','delhi','amsterdam']
 
 handleButtonClick.addEventListener('click', () => {
     const city = cityInput.value;
@@ -12,7 +14,7 @@ handleButtonClick.addEventListener('click', () => {
                 <h2>${data.location.name.toUpperCase()}</h2>
                 <p>Temperature: ${data.current.temp_c}°C</p>
                 <p>Humidity: ${data.current.humidity}°C</p>
-                <p>${data.current.condition.text}</p>
+                <p>Condition: ${data.current.condition.text}</p>
                 <img src=${data.current.condition.icon} alt="Weather Icon">
             `;
                 
@@ -23,3 +25,4 @@ handleButtonClick.addEventListener('click', () => {
             weatherData.innerHTML = 'Error fetching weather data';
         });
 });
+
